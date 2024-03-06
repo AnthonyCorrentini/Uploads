@@ -11,22 +11,21 @@
             <th>Azioni</th>
         </tr>
         <?php
-        $files = scandir("uploads/"); // Cartella dove verranno caricati i file
+        $files = scandir("/Uploads"); // Cartella dove verranno caricati i file
         foreach ($files as $file) {
             if ($file != '.' && $file != '..') {
-                echo "<tr><td>$file</td><td><a href='uploads/$file' download>Download</a></td></tr>";
+                echo "<tr><td>$file</td><td><a href='Uploads/$file'download>Download</a></td></tr>";
             }
         }
         ?>
     </table>
     <br>
-    <a href="upload_form.php">Carica un altro file</a>
+    <a href="Upload_form.php">Carica un altro file</a>
 </body>
 </html>
 
-
 <?php
-$target_dir = "uploads/";
+$target_dir = "Uploads/";
 $target_file = $target_dir . basename($_FILES["pdfFile"]["name"]);
 $uploadOk = 1;
 $pdfFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -50,5 +49,3 @@ if ($uploadOk == 0) {
     }
 }
 ?>
-
-
